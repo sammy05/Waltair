@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/BlueLine.aspx" hash="fffffff5a9b6a5fe" filehash="1d5be157ae20f741" flags="110000" assembly="App_Web_fvvravab" type="ASP.blueline_aspx">
+    <filedeps>
+        <filedep name="/BlueLine.aspx" />
+        <filedep name="/HTML/include.html" />
+    </filedeps>
+</preserve>

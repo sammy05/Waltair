@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Main.aspx" hash="fffffff5a9b6a5fe" filehash="58df5aa4513520b7" flags="110000" assembly="App_Web_fvvravab" type="ASP.main_aspx">
+    <filedeps>
+        <filedep name="/HTML/include.html" />
+        <filedep name="/HTML/navbar.html" />
+        <filedep name="/Main.aspx" />
+    </filedeps>
+</preserve>

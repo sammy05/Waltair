@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\VisualStudioWorkspace\ImageMapEx\ImageMapEx\bin\Release\Publish</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="App_Data/credentials.txt">
+      <publishTime>06/03/2019 17:41:57</publishTime>
+    </File>
+    <File Include="App_Data/MapCoordinates.txt">
+      <publishTime>06/18/2019 21:53:42</publishTime>
+    </File>
+    <File Include="bin/App_Web_cfszixd2.dll">
+      <publishTime>06/20/2019 16:54:51</publishTime>
+    </File>
+    <File Include="bin/App_Web_fvvravab.dll">
+      <publishTime>06/20/2019 22:35:20</publishTime>
+    </File>
+    <File Include="bin/App_Web_oxymxpbp.dll">
+      <publishTime>06/20/2019 22:06:14</publishTime>
+    </File>
+    <File Include="bin/blueline.aspx.cdcab7d2.compiled">
+      <publishTime>06/20/2019 22:35:20</publishTime>
+    </File>
+    <File Include="bin/BouncyCastle.Crypto.dll">
+      <publishTime>08/11/2018 10:03:48</publishTime>
+    </File>
+    <File Include="bin/cyanline.aspx.cdcab7d2.compiled">
+      <publishTime>06/20/2019 22:35:20</publishTime>
+    </File>
+    <File Include="bin/getimagecoords.aspx.cdcab7d2.compiled">
+      <publishTime>06/20/2019 22:35:20</publishTime>
+    </File>
+    <File Include="bin/Google.Protobuf.dll">
+      <publishTime>08/10/2018 18:51:54</publishTime>
+    </File>
+    <File Include="bin/greenline.aspx.cdcab7d2.compiled">
+      <publishTime>06/20/2019 22:35:20</publishTime>
+    </File>
+    <File Include="bin/ImageMapEx.dll">
+      <publishTime>06/20/2019 22:35:14</publishTime>
+    </File>
+    <File Include="bin/ImageMapEx.pdb">
+      <publishTime>06/20/2019 22:35:14</publishTime>
+    </File>
+    <File Include="bin/imagresize.aspx.cdcab7d2.compiled">
+      <publishTime>06/20/2019 22:35:20</publishTime>
+    </File>
+    <File Include="bin/login.aspx.cdcab7d2.compiled">
+      <publishTime>06/20/2019 22:35:20</publishTime>
+    </File>
+    <File Include="bin/logout.aspx.cdcab7d2.compiled">
+      <publishTime>06/20/2019 22:35:20</publishTime>
+    </File>
+    <File Include="bin/main.aspx.cdcab7d2.compiled">
+      <publishTime>06/20/2019 22:35:20</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/MySql.Data.dll">
+      <publishTime>03/08/2019 08:02:40</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>04/22/2019 01:06:16</publishTime>
+    </File>
+    <File Include="bin/pinkline.aspx.cdcab7d2.compiled">
+      <publishTime>06/20/2019 22:35:20</publishTime>
+    </File>
+    <File Include="bin/redline.aspx.cdcab7d2.compiled">
+      <publishTime>06/20/2019 22:35:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe.config">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Managed.Core.targets">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.AppContext.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Console.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.FileVersionInfo.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Compression.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Pipes.AccessControl.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Pipes.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.AccessControl.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Claims.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Algorithms.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Encoding.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Primitives.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.X509Certificates.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Principal.Windows.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Text.Encoding.CodePages.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.ValueTuple.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.ReaderWriter.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XmlDocument.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.XDocument.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/usermanagement.aspx.cdcab7d2.compiled">
+      <publishTime>06/20/2019 22:35:20</publishTime>
+    </File>
+    <File Include="BlueLine.aspx">
+      <publishTime>06/20/2019 22:35:20</publishTime>
+    </File>
+    <File Include="CyanLine.aspx">
+      <publishTime>06/20/2019 22:35:20</publishTime>
+    </File>
+    <File Include="GetImageCoords.aspx">
+      <publishTime>06/20/2019 22:35:20</publishTime>
+    </File>
+    <File Include="GreenLine.aspx">
+      <publishTime>06/20/2019 22:35:20</publishTime>
+    </File>
+    <File Include="HTML/include.html">
+      <publishTime>06/19/2019 16:33:45</publishTime>
+    </File>
+    <File Include="HTML/navbar.html">
+      <publishTime>06/20/2019 15:32:17</publishTime>
+    </File>
+    <File Include="Image/blue color.jpg">
+      <publishTime>05/27/2019 23:04:37</publishTime>
+    </File>
+    <File Include="Image/blue color_Cropped.jpg">
+      <publishTime>05/28/2019 16:10:01</publishTime>
+    </File>
+    <File Include="Image/Capture.PNG">
+      <publishTime>05/08/2019 16:38:03</publishTime>
+    </File>
+    <File Include="Image/Cryptic_Puzzle_Contingencies_2018_1112.png">
+      <publishTime>05/08/2019 15:25:17</publishTime>
+    </File>
+    <File Include="Image/Cyan color.jpg">
+      <publishTime>05/27/2019 23:04:37</publishTime>
+    </File>
+    <File Include="Image/Cyan_rotated_1.jpeg">
+      <publishTime>06/06/2019 15:39:24</publishTime>
+    </File>
+    <File Include="Image/Green color.jpg">
+      <publishTime>05/27/2019 23:04:37</publishTime>
+    </File>
+    <File Include="Image/Green color_Cropped.jpg">
+      <publishTime>05/28/2019 16:11:34</publishTime>
+    </File>
+    <File Include="Image/IndianRailLogo.png">
+      <publishTime>06/14/2019 23:50:30</publishTime>
+    </File>
+    <File Include="Image/IndianRailLogoRed.png">
+      <publishTime>06/14/2019 23:55:35</publishTime>
+    </File>
+    <File Include="Image/map of waltair-1.jpg">
+      <publishTime>05/27/2019 23:31:17</publishTime>
+    </File>
+    <File Include="Image/Megenta color.jpg">
+      <publishTime>05/27/2019 23:04:37</publishTime>
+    </File>
+    <File Include="Image/Red color.jpg">
+      <publishTime>05/27/2019 23:04:37</publishTime>
+    </File>
+    <File Include="Image/TrainBackGroundImage.png">
+      <publishTime>06/15/2019 10:37:09</publishTime>
+    </File>
+    <File Include="Image/TrainBlueLong.png">
+      <publishTime>06/15/2019 10:46:34</publishTime>
+    </File>
+    <File Include="Image/WaltairLogo.jpg">
+      <publishTime>06/02/2019 20:48:05</publishTime>
+    </File>
+    <File Include="Image/WaltairMain.jpg">
+      <publishTime>06/06/2019 15:49:15</publishTime>
+    </File>
+    <File Include="Image/WaltairMap - Copy.jpg">
+      <publishTime>06/19/2019 21:44:44</publishTime>
+    </File>
+    <File Include="Image/WaltairMap.jpg">
+      <publishTime>06/15/2019 20:59:42</publishTime>
+    </File>
+    <File Include="ImagResize.aspx">
+      <publishTime>06/20/2019 22:35:20</publishTime>
+    </File>
+    <File Include="JS/bootstrap.min.js">
+      <publishTime>05/29/2019 11:22:54</publishTime>
+    </File>
+    <File Include="JS/imageMapResizer.min.js">
+      <publishTime>05/08/2019 15:23:00</publishTime>
+    </File>
+    <File Include="JS/ImageZoom.js">
+      <publishTime>06/19/2019 16:36:15</publishTime>
+    </File>
+    <File Include="JS/jquery-ui.min.js">
+      <publishTime>05/29/2019 11:22:18</publishTime>
+    </File>
+    <File Include="JS/jquery.min.js">
+      <publishTime>05/29/2019 11:21:03</publishTime>
+    </File>
+    <File Include="JS/ModalPopup.js">
+      <publishTime>06/20/2019 22:03:23</publishTime>
+    </File>
+    <File Include="JS/popper.min.js">
+      <publishTime>05/10/2019 11:56:06</publishTime>
+    </File>
+    <File Include="JS/sidebar.js">
+      <publishTime>06/20/2019 15:05:06</publishTime>
+    </File>
+    <File Include="Login.aspx">
+      <publishTime>06/20/2019 22:35:20</publishTime>
+    </File>
+    <File Include="Logout.aspx">
+      <publishTime>06/20/2019 22:35:20</publishTime>
+    </File>
+    <File Include="Main.aspx">
+      <publishTime>06/20/2019 22:35:20</publishTime>
+    </File>
+    <File Include="PinkLine.aspx">
+      <publishTime>06/20/2019 22:35:20</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>06/20/2019 22:35:15</publishTime>
+    </File>
+    <File Include="RedLine.aspx">
+      <publishTime>06/20/2019 22:35:20</publishTime>
+    </File>
+    <File Include="Style/animate.css">
+      <publishTime>05/28/2019 21:26:15</publishTime>
+    </File>
+    <File Include="Style/basic.css">
+      <publishTime>06/20/2019 16:01:47</publishTime>
+    </File>
+    <File Include="Style/bootstrap.min.css">
+      <publishTime>06/17/2019 13:02:38</publishTime>
+    </File>
+    <File Include="Style/font-awesome.min.css">
+      <publishTime>06/11/2019 12:57:34</publishTime>
+    </File>
+    <File Include="Style/w3.css">
+      <publishTime>06/14/2019 21:20:38</publishTime>
+    </File>
+    <File Include="UserManagement.aspx">
+      <publishTime>06/20/2019 22:35:20</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>06/20/2019 16:52:13</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
