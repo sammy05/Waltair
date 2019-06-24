@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<preserve resultType="3" virtualPath="/ImagResize.aspx" hash="fffffff5a9b6a5fe" filehash="ffffd5c7346e63ff" flags="110000" assembly="App_Web_fvvravab" type="ASP.imagresize_aspx">
-    <filedeps>
-        <filedep name="/ImagResize.aspx" />
-    </filedeps>
-</preserve>

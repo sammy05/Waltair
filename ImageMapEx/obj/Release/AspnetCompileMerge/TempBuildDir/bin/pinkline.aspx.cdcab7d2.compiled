@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<preserve resultType="3" virtualPath="/PinkLine.aspx" hash="fffffff5a9b6a5fe" filehash="89493356722e4bf4" flags="110000" assembly="App_Web_fvvravab" type="ASP.pinkline_aspx">
-    <filedeps>
-        <filedep name="/HTML/include.html" />
-        <filedep name="/PinkLine.aspx" />
-    </filedeps>
-</preserve>

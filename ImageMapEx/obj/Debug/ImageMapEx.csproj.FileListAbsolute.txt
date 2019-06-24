@@ -60,3 +60,4 @@ D:\VisualStudioWorkspace\ImageMapEx\ImageMapEx\obj\Debug\ImageMapEx.csproj.CoreC
 D:\VisualStudioWorkspace\ImageMapEx\ImageMapEx\obj\Debug\ImageMapEx.csproj.CopyComplete
 D:\VisualStudioWorkspace\ImageMapEx\ImageMapEx\obj\Debug\ImageMapEx.dll
 D:\VisualStudioWorkspace\ImageMapEx\ImageMapEx\obj\Debug\ImageMapEx.pdb
+D:\VisualStudioWorkspace\ImageMapEx\ImageMapEx\obj\Debug\ImageMapEx.csprojAssemblyReference.cache

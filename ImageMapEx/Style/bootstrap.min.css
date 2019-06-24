@@ -3821,6 +3821,7 @@ tbody.collapse.in {
     display: none;
     float: left;
     min-width: 160px;
+    /*max-width: 160px;*/
     padding: 5px 0;
     margin: 2px 0 0;
     font-size: 14px;

@@ -29,12 +29,30 @@ namespace ImageMapEx.Common
         }
     }
 
+    //public class RailCoefficient
+    //{
+    //    public List<RailCoefficientData> Data;
+    //    public string Color;
+
+    //    public RailCoefficient(List<RailCoefficientData> data, string color)
+    //    {
+    //        Data = data;
+    //        Color = color;
+    //    }
+
+    //    public RailCoefficient()
+    //    {
+    //        Data = new List<RailCoefficientData>();
+    //        Color = "#FF5733";
+    //    }
+    //}
+
     public class RailCoefficient
     {
-        public List<RailCoefficientData> Data;
+        public List<string[]> Data;
         public string Color;
 
-        public RailCoefficient(List<RailCoefficientData> data, string color)
+        public RailCoefficient(List<string[]> data, string color)
         {
             Data = data;
             Color = color;
@@ -42,7 +60,7 @@ namespace ImageMapEx.Common
 
         public RailCoefficient()
         {
-            Data = new List<RailCoefficientData>();
+            Data = new List<string[]>();
             Color = "#FF5733";
         }
     }

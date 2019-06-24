@@ -64,30 +64,10 @@ namespace ImageMapEx
             return "";
         }
 
-        //[System.Web.Services.WebMethod]
-        //public static string GetConstructionOffices()
-        //{
-        //Dictionary<string, ConstructionOffices> constructionOffices = new Dictionary<string, ConstructionOffices>();
-        //string dataPath = @"C:\Users\ssrivastava\Downloads\datasheets\Excel files\Excel files\Map view\Station wise consturuction offices.csv";
-        //StreamReader dataFile = new StreamReader(dataPath);
-        //string dataLine;
-        //int count = 0;
-        //while ((dataLine = dataFile.ReadLine()) != null)
-        //{
-        //    if (++count > 1)
-        //    {
-        //        string[] fields = RegexSplit(dataLine);
-        //        constructionOffices[fields[1]] = new ConstructionOffices(Convert.ToInt32(fields[2]), Convert.ToInt32(fields[3]));
-        //    }
-        //}
-
-        //return BuildImageMap(new List<string>(constructionOffices.Keys)) + "~" + JsonConvert.SerializeObject(constructionOffices);
-        //}
-
         [System.Web.Services.WebMethod]
         public static string GetConstructionOffices()
         {
-            Dictionary<string, ConstructionOffices> constructionOfficeDict = new Dictionary<string, ConstructionOffices>();
+            Dictionary<string, StationData> constructionOfficeDict = new Dictionary<string, StationData>();
             List<string> records = ReadFile("ConstructionOfficeFileName");
             string[] Headers = new string[50];
             int count = 0;
@@ -105,9 +85,10 @@ namespace ImageMapEx
                     stationCode = stationCode.Split('/')[0].Trim();
                     if (!constructionOfficeDict.ContainsKey(stationCode))
                     {
-                        constructionOfficeDict[stationCode] = new ConstructionOffices();
+                        constructionOfficeDict[stationCode] = new StationData();
                     }
-                    constructionOfficeDict[stationCode].Data.Add(new ConstructionOfficesData(fields[2], fields[3]));
+                    //constructionOfficeDict[stationCode].Data.Add(new ConstructionOfficesData(fields[2], fields[3]));
+                    constructionOfficeDict[stationCode].Data.Add(fields.Skip(2).ToArray());
                 }
             }
 
@@ -116,14 +97,14 @@ namespace ImageMapEx
         }
 
         [System.Web.Services.WebMethod]
-        public static string GetRailCoefficient()
+        public static string GetRailCoefficient_Old()
         {
             Dictionary<string, RailCoefficient> railCoefficientDict = new Dictionary<string, RailCoefficient>();
             List<string> records = ReadFile("RailCoeffFileName");
             string[] Headers = new string[50];
             int count = 0;
             //while ((dataLine = dataFile.ReadLine()) != null)
-            foreach(string dataLine in records)
+            foreach (string dataLine in records)
             {
                 count++;
                 string[] fields = RegexSplit(dataLine);
@@ -139,7 +120,39 @@ namespace ImageMapEx
                     {
                         railCoefficientDict[stationCode] = new RailCoefficient();
                     }
-                    railCoefficientDict[stationCode].Data.Add(new RailCoefficientData(fields[1], fields[2], fields[3]));
+                    //railCoefficientDict[stationCode].Data.Add(new RailCoefficientData(fields[1], fields[2], fields[3]));
+                }
+            }
+
+            return BuildImageMap(new List<string>(railCoefficientDict.Keys)) + "~" + JsonConvert.SerializeObject(Headers)
+                + "~" + JsonConvert.SerializeObject(railCoefficientDict);
+        }
+
+        [System.Web.Services.WebMethod]
+        public static string GetRailCoefficient()
+        {
+            Dictionary<string, StationData> railCoefficientDict = new Dictionary<string, StationData>();
+            List<string> records = ReadFile("RailCoeffFileName");
+            string[] Headers = new string[50];
+            int count = 0;
+            //while ((dataLine = dataFile.ReadLine()) != null)
+            foreach (string dataLine in records)
+            {
+                count++;
+                string[] fields = RegexSplit(dataLine);
+                if (count == 1)
+                {
+                    Headers = fields.Skip(1).ToArray();
+                }
+                else if (count > 1)
+                {
+                    string stationCode = fields[0];
+                    stationCode = stationCode.Split('/')[0].Trim();
+                    if (!railCoefficientDict.ContainsKey(stationCode))
+                    {
+                        railCoefficientDict[stationCode] = new StationData(); ;
+                    }
+                    railCoefficientDict[stationCode].Data.Add(fields.Skip(1).ToArray());
                 }
             }
 
@@ -150,7 +163,7 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetFreightLoading()
         {
-            Dictionary<string, FreightLoading> freightLoadingDict = new Dictionary<string, FreightLoading>();
+            Dictionary<string, StationData> freightLoadingDict = new Dictionary<string, StationData>();
             List<string> records = ReadFile("FreightLoadingFileName");
             string[] Headers = new string[50];
             int count = 0;
@@ -168,10 +181,11 @@ namespace ImageMapEx
                     stationCode = stationCode.Split('/')[0].Trim();
                     if (!freightLoadingDict.ContainsKey(stationCode))
                     {
-                        freightLoadingDict[stationCode] = new FreightLoading();
+                        freightLoadingDict[stationCode] = new StationData();
                     }
                     //freightLoadingDict[stationCode].Data.Add(new FreightLoadingData(fields[2], fields[3], fields[4], fields[5], fields[6], fields[7]));
-                    freightLoadingDict[stationCode].Data.Add(new FreightLoadingData(fields[1], fields[2]));
+                    //freightLoadingDict[stationCode].Data.Add(new FreightLoadingData(fields[1], fields[2]));
+                    freightLoadingDict[stationCode].Data.Add(fields.Skip(1).ToArray());
                 }
             }
 
@@ -183,7 +197,7 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetFreightTrainExamData()
         {
-            Dictionary<string, FreightTrainExamination> freightExamDict = new Dictionary<string, FreightTrainExamination>();
+            Dictionary<string, StationData> freightExamDict = new Dictionary<string, StationData>();
             List<string> records = ReadFile("FreightTrainExmFileName");
             string[] Headers = new string[50];
             int count = 0;
@@ -201,10 +215,11 @@ namespace ImageMapEx
                     stationCode = stationCode.Split('/')[0].Trim();
                     if (!freightExamDict.ContainsKey(stationCode))
                     {
-                        freightExamDict[stationCode] = new FreightTrainExamination();
+                        freightExamDict[stationCode] = new StationData();
                     }
                     //freightExamDict[stationCode].Data.Add(new FreightTrainExaminationData(fields[2], fields[3], fields[4], fields[5]));
-                    freightExamDict[stationCode].Data.Add(new FreightTrainExaminationData(fields[1], fields[2]));
+                    //freightExamDict[stationCode].Data.Add(new FreightTrainExaminationData(fields[1], fields[2]));
+                    freightExamDict[stationCode].Data.Add(fields.Skip(1).ToArray());
                 }
             }
 
@@ -215,7 +230,7 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetFreightTrainExamEarningData()
         {
-            Dictionary<string, FreightTrainExamination> freightExamDict = new Dictionary<string, FreightTrainExamination>();
+            Dictionary<string, StationData> freightExamDict = new Dictionary<string, StationData>();
             List<string> records = ReadFile("FreightTrainExmEarningFileName");
             string[] Headers = new string[50];
             int count = 0;
@@ -233,9 +248,10 @@ namespace ImageMapEx
                     stationCode = stationCode.Split('/')[0].Trim();
                     if (!freightExamDict.ContainsKey(stationCode))
                     {
-                        freightExamDict[stationCode] = new FreightTrainExamination();
+                        freightExamDict[stationCode] = new StationData();
                     }
-                    freightExamDict[stationCode].Data.Add(new FreightTrainExaminationData(fields[1], fields[2]));
+                    //freightExamDict[stationCode].Data.Add(new FreightTrainExaminationData(fields[1], fields[2]));
+                    freightExamDict[stationCode].Data.Add(fields.Skip(1).ToArray());
                 }
             }
 
@@ -246,7 +262,7 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetPassengerTraffic()
         {
-            Dictionary<string, PassengerTraffic> passengerTrafficDict = new Dictionary<string, PassengerTraffic>();
+            Dictionary<string, StationData> passengerTrafficDict = new Dictionary<string, StationData>();
             List<string> records = ReadFile("PassengerTrafficFileName");
             string[] Headers = new string[50];
             int count = 0;
@@ -264,9 +280,10 @@ namespace ImageMapEx
                     stationCode = stationCode.Split('/')[0].Trim();
                     if (!passengerTrafficDict.ContainsKey(stationCode))
                     {
-                        passengerTrafficDict[stationCode] = new PassengerTraffic();
+                        passengerTrafficDict[stationCode] = new StationData();
                     }
-                    passengerTrafficDict[stationCode].Data.Add(new PassengerTrafficData(fields[1], fields[2]));
+                    //passengerTrafficDict[stationCode].Data.Add(new PassengerTrafficData(fields[1], fields[2]));
+                    passengerTrafficDict[stationCode].Data.Add(fields.Skip(1).ToArray());
                 }
             }
 
@@ -277,7 +294,7 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetSignalDETU()
         {
-            Dictionary<string, SignalDETU> signalDETUDict = new Dictionary<string, SignalDETU>();
+            Dictionary<string, StationData> signalDETUDict = new Dictionary<string, StationData>();
             string dataPath = @"C:\Users\ssrivastava\Downloads\datasheets\Excel files\Excel files\Signal Telecom Assets\Station wise Telecom assets and DETU.csv";
             StreamReader dataFile = new StreamReader(dataPath);
             string dataLine;
@@ -297,10 +314,11 @@ namespace ImageMapEx
                     stationCode = stationCode.Split('/')[0].Trim();
                     if (!signalDETUDict.ContainsKey(stationCode))
                     {
-                        signalDETUDict[stationCode] = new SignalDETU();
+                        signalDETUDict[stationCode] = new StationData();
                     }
-                    signalDETUDict[stationCode].Data.Add(new SignalDETUData(fields[2], fields[3], fields[4],
-                        fields[5], fields[6], fields[7], fields[8], fields[9], "1"));
+                    //signalDETUDict[stationCode].Data.Add(new SignalDETUData(fields[2], fields[3], fields[4],
+                    //    fields[5], fields[6], fields[7], fields[8], fields[9], "1"));
+                    signalDETUDict[stationCode].Data.Add(fields.Skip(2).ToArray());
                 }
             }
 
@@ -311,7 +329,7 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetSignalDESU()
         {
-            Dictionary<string, SignalDESU> signalDESUDict = new Dictionary<string, SignalDESU>();
+            Dictionary<string, StationData> signalDESUDict = new Dictionary<string, StationData>();
             string dataPath = @"C:\Users\ssrivastava\Downloads\datasheets\Excel files\Excel files\Signal Telecom Assets\Station wise signalling assets and DESU.csv";
             StreamReader dataFile = new StreamReader(dataPath);
             string dataLine;
@@ -331,10 +349,11 @@ namespace ImageMapEx
                     stationCode = stationCode.Split('/')[0].Trim();
                     if (!signalDESUDict.ContainsKey(stationCode))
                     {
-                        signalDESUDict[stationCode] = new SignalDESU();
+                        signalDESUDict[stationCode] = new StationData();
                     }
-                    signalDESUDict[stationCode].Data.Add(new SignalDESUData(fields[2], fields[3], fields[4],
-                        fields[5], fields[6], fields[7], fields[8], fields[9], fields[10], fields[11], fields[12], fields[13]));
+                    //signalDESUDict[stationCode].Data.Add(new SignalDESUData(fields[2], fields[3], fields[4],
+                    //    fields[5], fields[6], fields[7], fields[8], fields[9], fields[10], fields[11], fields[12], fields[13]));
+                    signalDESUDict[stationCode].Data.Add(fields.Skip(2).ToArray());
                 }
             }
 
@@ -342,12 +361,12 @@ namespace ImageMapEx
                 + "~" + JsonConvert.SerializeObject(signalDESUDict);
         }
 
-        
+
 
         [System.Web.Services.WebMethod]
         public static string GetSecurity()
         {
-            Dictionary<string, Security> securityDict = new Dictionary<string, Security>();
+            Dictionary<string, StationData> securityDict = new Dictionary<string, StationData>();
             List<string> records = ReadFile("RPFPostFileName");
             string[] Headers = new string[14];
             int count = 0;
@@ -380,11 +399,12 @@ namespace ImageMapEx
                     stationCode = stationCode.Split('/')[0].Trim();
                     if (!securityDict.ContainsKey(stationCode))
                     {
-                        securityDict[stationCode] = new Security();
+                        securityDict[stationCode] = new StationData();
                     }
                     //securityDict[stationCode].Data.Add(new SecurityData(fields[2], fields[3], fields[4],
                     //    fields[5], fields[6], fields[7], fields[8], fields[9], fields[10], fields[11], fields[12], fields[13], fields[14], fields[15]));
-                    securityDict[stationCode].Data.Add(new SecurityData(fields[2], fields[3]));
+                    //securityDict[stationCode].Data.Add(new SecurityData(fields[2], fields[3]));
+                    securityDict[stationCode].Data.Add(fields.Skip(2).ToArray());
                 }
             }
 
@@ -395,7 +415,7 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetRunningRooms()
         {
-            Dictionary<string, RunningRooms> runningRoomsDict = new Dictionary<string, RunningRooms>();
+            Dictionary<string, StationData> runningRoomsDict = new Dictionary<string, StationData>();
             List<string> records = ReadFile("RunningRoomsFileName");
             string[] Headers = new string[50];
             int count = 0;
@@ -419,9 +439,10 @@ namespace ImageMapEx
                     }
                     if (!runningRoomsDict.ContainsKey(stationCode))
                     {
-                        runningRoomsDict[stationCode] = new RunningRooms();
+                        runningRoomsDict[stationCode] = new StationData();
                     }
-                    runningRoomsDict[stationCode].Data.Add(new RunningRoomsData(fields[1], fields[2], fields[3]));
+                    //runningRoomsDict[stationCode].Data.Add(new RunningRoomsData(fields[1], fields[2], fields[3]));
+                    runningRoomsDict[stationCode].Data.Add(fields.Skip(1).ToArray());
                 }
             }
 
@@ -432,7 +453,7 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetRestRooms()
         {
-            Dictionary<string, RestRooms> restRoomsDict = new Dictionary<string, RestRooms>();
+            Dictionary<string, StationData> restRoomsDict = new Dictionary<string, StationData>();
             List<string> records = ReadFile("TTERestRoomsFileName");
             string[] Headers = new string[50];
             int count = 0;
@@ -456,9 +477,10 @@ namespace ImageMapEx
                     }
                     if (!restRoomsDict.ContainsKey(stationCode))
                     {
-                        restRoomsDict[stationCode] = new RestRooms();
+                        restRoomsDict[stationCode] = new StationData();
                     }
-                    restRoomsDict[stationCode].Data.Add(new RestRoomsData(fields[2], fields[3]));
+                    //restRoomsDict[stationCode].Data.Add(new RestRoomsData(fields[2], fields[3]));
+                    restRoomsDict[stationCode].Data.Add(fields.Skip(2).ToArray());
                 }
             }
 
@@ -470,7 +492,7 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetChangeStations()
         {
-            Dictionary<string, ChangeStations> changeStationDict = new Dictionary<string, ChangeStations>();
+            Dictionary<string, StationData> changeStationDict = new Dictionary<string, StationData>();
             List<string> records = ReadFile("TTEChangePointFileName");
             string[] Headers = new string[50];
             int count = 0;
@@ -494,9 +516,10 @@ namespace ImageMapEx
                     }
                     if (!changeStationDict.ContainsKey(stationCode))
                     {
-                        changeStationDict[stationCode] = new ChangeStations();
+                        changeStationDict[stationCode] = new StationData();
                     }
-                    changeStationDict[stationCode].Data.Add(new ChangeStationsData(fields[2], fields[3]));
+                    //changeStationDict[stationCode].Data.Add(new ChangeStationsData(fields[2], fields[3]));
+                    changeStationDict[stationCode].Data.Add(fields.Skip(2).ToArray());
                 }
             }
 
@@ -507,7 +530,7 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetQuarters()
         {
-            Dictionary<string, Quarters> quartersDict = new Dictionary<string, Quarters>();
+            Dictionary<string, StationData> quartersDict = new Dictionary<string, StationData>();
             List<string> records = ReadFile("QuartersFileName");
             string[] Headers = new string[50];
             int count = 0;
@@ -534,10 +557,11 @@ namespace ImageMapEx
                         stationCode = "VSKP";
                     if (!quartersDict.ContainsKey(stationCode))
                     {
-                        quartersDict[stationCode] = new Quarters();
+                        quartersDict[stationCode] = new StationData();
                     }
-                    quartersDict[stationCode].Data.Add(new QuartersData(fields[2], fields[3], fields[4],
-                        fields[5], fields[6], fields[7], fields[8]));
+                    //quartersDict[stationCode].Data.Add(new QuartersData(fields[2], fields[3], fields[4],
+                    //    fields[5], fields[6], fields[7], fields[8]));
+                    quartersDict[stationCode].Data.Add(fields.Skip(2).ToArray());
                 }
             }
 
@@ -560,7 +584,7 @@ namespace ImageMapEx
 
         private static string GetDisasterMangementData(string filter)
         {
-            Dictionary<string, DisasterManagement> ARTDict = new Dictionary<string, DisasterManagement>();
+            Dictionary<string, StationData> ARTDict = new Dictionary<string, StationData>();
             List<string> records = ReadFile("DisasterManageFileName");
             string[] Headers = new string[50];
             int count = 0;
@@ -589,9 +613,10 @@ namespace ImageMapEx
                     {
                         if (!ARTDict.ContainsKey(stationCode))
                         {
-                            ARTDict[stationCode] = new DisasterManagement();
+                            ARTDict[stationCode] = new StationData();
                         }
-                        ARTDict[stationCode].Data.Add(new DisasterManagementData(fields[2], fields[3], fields[4]));
+                        //ARTDict[stationCode].Data.Add(new DisasterManagementData(fields[2], fields[3], fields[4]));
+                        ARTDict[stationCode].Data.Add(fields.Skip(2).ToArray());
                     }
                 }
             }
@@ -603,7 +628,7 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetBridges()
         {
-            Dictionary<string, Bridges> bridgesDict = new Dictionary<string, Bridges>();
+            Dictionary<string, StationData> bridgesDict = new Dictionary<string, StationData>();
             List<string> records = ReadFile("BRIFileName");
             string[] Headers = new string[50];
             int count = 0;
@@ -630,10 +655,10 @@ namespace ImageMapEx
                         stationCode = "VSKP";
                     if (!bridgesDict.ContainsKey(stationCode))
                     {
-                        bridgesDict[stationCode] = new Bridges();
+                        bridgesDict[stationCode] = new StationData();
                     }
-                    bridgesDict[stationCode].Data.Add(new BridgesData(fields[2], fields[3], fields[4],
-                        fields[5], fields[6]));
+                    //bridgesDict[stationCode].Data.Add(new BridgesData(fields[2], fields[3], fields[4],fields[5], fields[6]));
+                    bridgesDict[stationCode].Data.Add(fields.Skip(2).ToArray());
                 }
             }
             return BuildImageMap(new List<string>(bridgesDict.Keys)) + "~" + JsonConvert.SerializeObject(Headers)
@@ -643,7 +668,7 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetCWFacilities()
         {
-            Dictionary<string, Coach> coachDict = new Dictionary<string, Coach>();
+            Dictionary<string, StationData> coachDict = new Dictionary<string, StationData>();
             List<string> records = ReadFile("CWFileName");
             string[] Headers = new string[50];
             int count = 0;
@@ -670,9 +695,10 @@ namespace ImageMapEx
                         stationCode = "VSKP";
                     if (!coachDict.ContainsKey(stationCode))
                     {
-                        coachDict[stationCode] = new Coach();
+                        coachDict[stationCode] = new StationData();
                     }
-                    coachDict[stationCode].Data.Add(new CoachData(fields[1], fields[2]));
+                    //[stationCode].Data.Add(new CoachData(fields[1], fields[2]));
+                    coachDict[stationCode].Data.Add(fields.Skip(1).ToArray());
                 }
             }
 
@@ -683,7 +709,7 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetWeighBridges()
         {
-            Dictionary<string, WeighBridges> weighBridgesDict = new Dictionary<string, WeighBridges>();
+            Dictionary<string, StationData> weighBridgesDict = new Dictionary<string, StationData>();
             List<string> records = ReadFile("WeighBridgeFileName");
             string[] Headers = new string[50];
             int count = 0;
@@ -710,9 +736,10 @@ namespace ImageMapEx
                         stationCode = "VSKP";
                     if (!weighBridgesDict.ContainsKey(stationCode))
                     {
-                        weighBridgesDict[stationCode] = new WeighBridges();
+                        weighBridgesDict[stationCode] = new StationData();
                     }
-                    weighBridgesDict[stationCode].Data.Add(new WeighBridgesData(fields[2]));
+                    //weighBridgesDict[stationCode].Data.Add(new WeighBridgesData(fields[2]));
+                    weighBridgesDict[stationCode].Data.Add(fields.Skip(2).ToArray());
                 }
             }
 
@@ -723,8 +750,8 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetCrewBookingPoints()
         {
-            Dictionary<string, CrewBookingPoints> crewBookingDict
-                = new Dictionary<string, CrewBookingPoints>();
+            Dictionary<string, StationData> crewBookingDict
+                = new Dictionary<string, StationData>();
             List<string> records = ReadFile("CrewBookingFileName");
             string[] Headers = new string[50];
             int count = 0;
@@ -751,9 +778,10 @@ namespace ImageMapEx
                         stationCode = "VSKP";
                     if (!crewBookingDict.ContainsKey(stationCode))
                     {
-                        crewBookingDict[stationCode] = new CrewBookingPoints();
+                        crewBookingDict[stationCode] = new StationData();
                     }
-                    crewBookingDict[stationCode].Data.Add(new CrewBookingPointsData(fields[2], fields[3], fields[4]));
+                    //crewBookingDict[stationCode].Data.Add(new CrewBookingPointsData(fields[2], fields[3], fields[4]));
+                    crewBookingDict[stationCode].Data.Add(fields.Skip(2).ToArray());
                 }
             }
 
@@ -764,8 +792,8 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetLocoSheds()
         {
-            Dictionary<string, LocoSheds> locoShedDict
-                = new Dictionary<string, LocoSheds>();
+            Dictionary<string, StationData> locoShedDict
+                = new Dictionary<string, StationData>();
             List<string> records = ReadFile("LocoShedFileName");
             string[] Headers = new string[50];
             int count = 0;
@@ -792,9 +820,10 @@ namespace ImageMapEx
                         stationCode = "VSKP";
                     if (!locoShedDict.ContainsKey(stationCode))
                     {
-                        locoShedDict[stationCode] = new LocoSheds();
+                        locoShedDict[stationCode] = new StationData();
                     }
-                    locoShedDict[stationCode].Data.Add(new LocoShedsData(fields[2], fields[3]));
+                    //locoShedDict[stationCode].Data.Add(new LocoShedsData(fields[2], fields[3]));
+                    locoShedDict[stationCode].Data.Add(fields.Skip(2).ToArray());
                 }
             }
 
@@ -806,8 +835,8 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetEmployeeDetails()
         {
-            Dictionary<string, EmployeeDetails> employeeDict
-                = new Dictionary<string, EmployeeDetails>();
+            Dictionary<string, StationData> employeeDict
+                = new Dictionary<string, StationData>();
             List<string> records = ReadFile("EmployeesFileName");
             string[] Headers = new string[50];
             int count = 0;
@@ -836,9 +865,10 @@ namespace ImageMapEx
                         stationCode = "VSKP";
                     if (!employeeDict.ContainsKey(stationCode))
                     {
-                        employeeDict[stationCode] = new EmployeeDetails();
+                        employeeDict[stationCode] = new StationData();
                     }
-                    employeeDict[stationCode].Data.Add(new EmployeeDetailsData(fields[1], fields[2]));
+                    //employeeDict[stationCode].Data.Add(new EmployeeDetailsData(fields[1], fields[2]));
+                    employeeDict[stationCode].Data.Add(fields.Skip(1).ToArray());
                 }
             }
 
@@ -849,8 +879,8 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetCommunityHalls()
         {
-            Dictionary<string, CommunityHall> communityHallDict
-                = new Dictionary<string, CommunityHall>();
+            Dictionary<string, StationData> communityHallDict
+                = new Dictionary<string, StationData>();
             List<string> records = ReadFile("CommunityHallFileName");
             string[] Headers = new string[14];
             int count = 0;
@@ -879,10 +909,11 @@ namespace ImageMapEx
                         stationCode = "VSKP";
                     if (!communityHallDict.ContainsKey(stationCode))
                     {
-                        communityHallDict[stationCode] = new CommunityHall();
+                        communityHallDict[stationCode] = new StationData();
                     }
                     //communityHallDict[stationCode].Data.Add(new CommunityHallData(fields[2], fields[3], fields[4], fields[5]));
-                    communityHallDict[stationCode].Data.Add(new CommunityHallData(fields[1]));
+                    //communityHallDict[stationCode].Data.Add(new CommunityHallData(fields[1]));
+                    communityHallDict[stationCode].Data.Add(fields.Skip(1).ToArray());
                 }
             }
 
@@ -893,8 +924,8 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetOfficersClub()
         {
-            Dictionary<string, OfficersClub> officersClubDict
-                = new Dictionary<string, OfficersClub>();
+            Dictionary<string, StationData> officersClubDict
+                = new Dictionary<string, StationData>();
             List<string> records = ReadFile("OfficersClubeFileName");
             string[] Headers = new string[14];
             int count = 0;
@@ -923,9 +954,10 @@ namespace ImageMapEx
                         stationCode = "VSKP";
                     if (!officersClubDict.ContainsKey(stationCode))
                     {
-                        officersClubDict[stationCode] = new OfficersClub();
+                        officersClubDict[stationCode] = new StationData();
                     }
-                    officersClubDict[stationCode].Data.Add(new OfficersClubData(fields[2]));
+                    //officersClubDict[stationCode].Data.Add(new OfficersClubData(fields[2]));
+                    officersClubDict[stationCode].Data.Add(fields.Skip(2).ToArray());
                     //officersClubDict[stationCode].Data.Add(new OfficersClubData(fields[2], fields[3], fields[4], fields[5], fields[6]));
                 }
             }
@@ -937,8 +969,8 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetORH()
         {
-            Dictionary<string, Orh> orhDict
-                = new Dictionary<string, Orh>();
+            Dictionary<string, StationData> orhDict
+                = new Dictionary<string, StationData>();
             List<string> records = ReadFile("ORHFileName");
             string[] Headers = new string[14];
             int count = 0;
@@ -967,9 +999,10 @@ namespace ImageMapEx
                         stationCode = "VSKP";
                     if (!orhDict.ContainsKey(stationCode))
                     {
-                        orhDict[stationCode] = new Orh();
+                        orhDict[stationCode] = new StationData();
                     }
-                    orhDict[stationCode].Data.Add(new OrhData(fields[1], fields[2], fields[3]));
+                    //orhDict[stationCode].Data.Add(new OrhData(fields[1], fields[2], fields[3]));
+                    orhDict[stationCode].Data.Add(fields.Skip(1).ToArray());
                 }
             }
 
@@ -980,8 +1013,8 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetSRH()
         {
-            Dictionary<string, Orh> orhDict
-                = new Dictionary<string, Orh>();
+            Dictionary<string, StationData> orhDict
+                = new Dictionary<string, StationData>();
             List<string> records = ReadFile("SRHFileName");
             string[] Headers = new string[14];
             int count = 0;
@@ -1010,9 +1043,10 @@ namespace ImageMapEx
                         stationCode = "VSKP";
                     if (!orhDict.ContainsKey(stationCode))
                     {
-                        orhDict[stationCode] = new Orh();
+                        orhDict[stationCode] = new StationData();
                     }
-                    orhDict[stationCode].Data.Add(new OrhData(fields[1], fields[2], fields[3]));
+                    //orhDict[stationCode].Data.Add(new OrhData(fields[1], fields[2], fields[3]));
+                    orhDict[stationCode].Data.Add(fields.Skip(1).ToArray());
                 }
             }
 
@@ -1023,8 +1057,8 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetRailwayInstitutes()
         {
-            Dictionary<string, RailwayInstitutes> railwayInstiDict
-                = new Dictionary<string, RailwayInstitutes>();
+            Dictionary<string, StationData> railwayInstiDict
+                = new Dictionary<string, StationData>();
             List<string> records = ReadFile("RailwayInstituteFileName");
             string[] Headers = new string[14];
             int count = 0;
@@ -1053,10 +1087,11 @@ namespace ImageMapEx
                         stationCode = "VSKP";
                     if (!railwayInstiDict.ContainsKey(stationCode))
                     {
-                        railwayInstiDict[stationCode] = new RailwayInstitutes();
+                        railwayInstiDict[stationCode] = new StationData();
                     }
                     //railwayInstiDict[stationCode].Data.Add(new RailwayInstitutesData(fields[2], fields[3], fields[4]));
-                    railwayInstiDict[stationCode].Data.Add(new RailwayInstitutesData(fields[1]));
+                    //railwayInstiDict[stationCode].Data.Add(new RailwayInstitutesData(fields[1]));
+                    railwayInstiDict[stationCode].Data.Add(fields.Skip(1).ToArray());
                 }
             }
 
@@ -1068,8 +1103,8 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetSportsComplex()
         {
-            Dictionary<string, SportsComplex> sportComplexDict
-                = new Dictionary<string, SportsComplex>();
+            Dictionary<string, StationData> sportComplexDict
+                = new Dictionary<string, StationData>();
             List<string> records = ReadFile("SportsComplexFileName");
             string[] Headers = new string[14];
             int count = 0;
@@ -1097,10 +1132,11 @@ namespace ImageMapEx
                         stationCode = "VSKP";
                     if (!sportComplexDict.ContainsKey(stationCode))
                     {
-                        sportComplexDict[stationCode] = new SportsComplex();
+                        sportComplexDict[stationCode] = new StationData();
                     }
                     //sportComplexDict[stationCode].Data.Add(new SportsComplexData(fields[2], fields[3], fields[4], fields[5]));
-                    sportComplexDict[stationCode].Data.Add(new SportsComplexData(fields[1], fields[2]));
+                    //sportComplexDict[stationCode].Data.Add(new SportsComplexData(fields[1], fields[2]));
+                    sportComplexDict[stationCode].Data.Add(fields.Skip(1).ToArray());
                 }
             }
 
@@ -1111,8 +1147,8 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetTrainingCenters()
         {
-            Dictionary<string, TrainingCenter> trainingCenterDict
-                = new Dictionary<string, TrainingCenter>();
+            Dictionary<string, StationData> trainingCenterDict
+                = new Dictionary<string, StationData>();
 
             List<string> records = ReadFile("TrainingCenterFileName");
             string[] Headers = new string[14];
@@ -1142,9 +1178,10 @@ namespace ImageMapEx
                         stationCode = "VSKP";
                     if (!trainingCenterDict.ContainsKey(stationCode))
                     {
-                        trainingCenterDict[stationCode] = new TrainingCenter();
+                        trainingCenterDict[stationCode] = new StationData();
                     }
-                    trainingCenterDict[stationCode].Data.Add(new TrainingCenterData(fields[2], fields[3], fields[4], fields[5]));
+                    //trainingCenterDict[stationCode].Data.Add(new TrainingCenterData(fields[2], fields[3], fields[4], fields[5]));
+                    trainingCenterDict[stationCode].Data.Add(fields.Skip(2).ToArray());
                 }
             }
 
@@ -1155,8 +1192,8 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetMedicalFacilities()
         {
-            Dictionary<string, MedicalFacilities> medicalFacilitiesDict
-                = new Dictionary<string, MedicalFacilities>();
+            Dictionary<string, StationData> medicalFacilitiesDict
+                = new Dictionary<string, StationData>();
             List<string> records = ReadFile("MedicalFileName");
             string[] Headers = new string[14];
             int count = 0;
@@ -1185,9 +1222,10 @@ namespace ImageMapEx
                         stationCode = "VSKP";
                     if (!medicalFacilitiesDict.ContainsKey(stationCode))
                     {
-                        medicalFacilitiesDict[stationCode] = new MedicalFacilities();
+                        medicalFacilitiesDict[stationCode] = new StationData();
                     }
-                    medicalFacilitiesDict[stationCode].Data.Add(new MedicalFacilitiesData(fields[1], fields[2]));
+                    //medicalFacilitiesDict[stationCode].Data.Add(new MedicalFacilitiesData(fields[1], fields[2]));
+                    medicalFacilitiesDict[stationCode].Data.Add(fields.Skip(1).ToArray());
                 }
             }
 
@@ -1198,15 +1236,11 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetPWayUnits()
         {
-            Dictionary<string, PWayUnits> pWayUnitsDict = new Dictionary<string, PWayUnits>();
-            string dataDirectory = ConfigurationManager.AppSettings["DataDirectory"].ToString();
-            string fileName = ConfigurationManager.AppSettings["PWayUnitsFileName"].ToString();
-            string dataPath = dataDirectory + fileName;
-            StreamReader dataFile = new StreamReader(dataPath);
-            string dataLine;
+            Dictionary<string, StationData> pWayUnitsDict = new Dictionary<string, StationData>();
+            List<string> records = ReadFile("PWayUnitsFileName");
             string[] Headers = new string[14];
             int count = 0;
-            while ((dataLine = dataFile.ReadLine()) != null)
+            foreach (string dataLine in records)
             {
                 count++;
                 string[] fields = RegexSplit(dataLine);
@@ -1229,10 +1263,11 @@ namespace ImageMapEx
                         stationCode = "VSKP";
                     if (!pWayUnitsDict.ContainsKey(stationCode))
                     {
-                        pWayUnitsDict[stationCode] = new PWayUnits();
+                        pWayUnitsDict[stationCode] = new StationData();
                     }
-                    pWayUnitsDict[stationCode].Data.Add(new PWayUnitsData(fields[1], fields[2], fields[3],
-                        fields[4], fields[5], fields[6]));
+                    //pWayUnitsDict[stationCode].Data.Add(new PWayUnitsData(fields[1], fields[2], fields[3],
+                    //    fields[4], fields[5], fields[6]));
+                    pWayUnitsDict[stationCode].Data.Add(fields.Skip(1).ToArray());
                 }
             }
 
@@ -1243,7 +1278,7 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetMajorOffices()
         {
-            Dictionary<string, MajorOffices> majorOfficesDict = new Dictionary<string, MajorOffices>();
+            Dictionary<string, StationData> majorOfficesDict = new Dictionary<string, StationData>();
             List<string> records = ReadFile("MajorOfficesFileName");
             string[] Headers = new string[50];
             int count = 0;
@@ -1271,9 +1306,10 @@ namespace ImageMapEx
 
                     if (!majorOfficesDict.ContainsKey(stationCode))
                     {
-                        majorOfficesDict[stationCode] = new MajorOffices();
+                        majorOfficesDict[stationCode] = new StationData();
                     }
-                    majorOfficesDict[stationCode].Data.Add(new MajorOfficesData(fields[1]));
+                    //majorOfficesDict[stationCode].Data.Add(new MajorOfficesData(fields[1]));
+                    majorOfficesDict[stationCode].Data.Add(fields.Skip(1).ToArray());
                 }
             }
 
@@ -1284,7 +1320,7 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetLHTrainForming()
         {
-            Dictionary<string, LHTrainForming> LHTrainDict = new Dictionary<string, LHTrainForming>();
+            Dictionary<string, StationData> LHTrainDict = new Dictionary<string, StationData>();
             List<string> records = ReadFile("LHTrainFileName");
             string[] Headers = new string[50];
             int count = 0;
@@ -1302,9 +1338,10 @@ namespace ImageMapEx
                     stationCode = stationCode.Split('/')[0].Trim();
                     if (!LHTrainDict.ContainsKey(stationCode))
                     {
-                        LHTrainDict[stationCode] = new LHTrainForming();
+                        LHTrainDict[stationCode] = new StationData();
                     }
-                    LHTrainDict[stationCode].Data.Add(new LHTrainFormingData(fields[1], fields[2]));
+                    //LHTrainDict[stationCode].Data.Add(new LHTrainFormingData(fields[1], fields[2]));
+                    LHTrainDict[stationCode].Data.Add(fields.Skip(1).ToArray());
                 }
             }
 

@@ -91,6 +91,8 @@
     <Content Include="GetImageCoords.aspx" />
     <Content Include="GreenLine.aspx" />
     <Content Include="HTML\navbar.html" />
+    <Content Include="Image\IndianRailLogo.ico" />
+    <Content Include="Image\IndianRailLogoRed.png" />
     <Content Include="Image\WaltairMap - Copy.jpg" />
     <Content Include="Image\WaltairMap.jpg" />
     <Content Include="Image\WaltairLogo.jpg" />
@@ -133,6 +135,7 @@
     <Compile Include="Common\FreightLoading.cs" />
     <Compile Include="Common\FreightTrainExamination.cs" />
     <Compile Include="Common\LHTrainForming.cs" />
+    <Compile Include="Common\StationData.cs" />
     <Compile Include="Common\LocoSheds.cs" />
     <Compile Include="Common\MajorOffices.cs" />
     <Compile Include="Common\MedicalFacilities.cs" />

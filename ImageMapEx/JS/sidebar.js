@@ -63,7 +63,7 @@ $(document).ready(
         //document.getElementById("mySidebar").style.display = "block";
         //document.getElementById("form1").style.marginLeft = "14%";
         //$('#divNavbar').append(logoutButton);
-        $('#navbarId').append('<h2 class="w3-text-white w3-center" > Waltair(SCoR) and Rayagada(ECoR) Divisons</h2 >');
+        $('#navbarId').append('<h2 class="w3-text-white w3-center" > Waltair(SCoR) and Rayagada(ECoR) Divisions</h2 >');
     });
 
 function setImageMapA() {

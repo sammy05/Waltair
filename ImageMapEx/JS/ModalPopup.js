@@ -69,7 +69,7 @@ function showModalWithHeader(areaId) {
 
     $('#modalTable > thead').find('tr').remove();
     var temp = '<tr>';
-        temp += ('<th>S No</th>');
+    temp += ('<th>S No</th>');
     for (var i = 0; i < header.length; i++) {
         //temp += ('<th style="text-align:left">' + header[i] + '</th>');
         temp += ('<th>' + header[i] + '</th>');
@@ -84,13 +84,14 @@ function showModalWithHeader(areaId) {
     for (var i = 0; i < areaData.Data.length; i++) {
         var tempData = areaData.Data[i];
         var temp = '<tr>';
-        temp += ('<td>' + (i+1) + '</td>');
+        temp += ('<td>' + (i + 1) + '</td>');
         Object.keys(tempData).forEach(function (key) {
-            //console.table('Key : ' + key + ', Value : ' + tempData[key]);
+            console.table('Key : ' + key + ', Value : ' + tempData[key]);
             if (key === "Color") { }
             else {
-                if (isNaN(tempData[key]))
-                    temp += ('<td>' + tempData[key] + '</td>');
+                if (!isNaN(Number(tempData[key]))) {
+                    temp += ('<td>' + Math.round(Number(tempData[key])*1000)/1000 + '</td>');
+                }
                 else
                     temp += ('<td>' + tempData[key] + '</td>');
             } // style="text-align:left"

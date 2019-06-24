@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<preserve resultType="3" virtualPath="/GetImageCoords.aspx" hash="fffffff5a9b6a5fe" filehash="fffff7070ff815cd" flags="110000" assembly="App_Web_fvvravab" type="ASP.getimagecoords_aspx">
-    <filedeps>
-        <filedep name="/GetImageCoords.aspx" />
-    </filedeps>
-</preserve>
