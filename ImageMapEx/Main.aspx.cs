@@ -59,12 +59,6 @@ namespace ImageMapEx
         }
 
         [System.Web.Services.WebMethod]
-        public static string GetDivisionalTrainingCentres()
-        {
-            return "";
-        }
-
-        [System.Web.Services.WebMethod]
         public static string GetConstructionOffices()
         {
             Dictionary<string, StationData> constructionOfficeDict = new Dictionary<string, StationData>();
@@ -103,7 +97,6 @@ namespace ImageMapEx
             List<string> records = ReadFile("RailCoeffFileName");
             string[] Headers = new string[50];
             int count = 0;
-            //while ((dataLine = dataFile.ReadLine()) != null)
             foreach (string dataLine in records)
             {
                 count++;
@@ -135,7 +128,6 @@ namespace ImageMapEx
             List<string> records = ReadFile("RailCoeffFileName");
             string[] Headers = new string[50];
             int count = 0;
-            //while ((dataLine = dataFile.ReadLine()) != null)
             foreach (string dataLine in records)
             {
                 count++;
@@ -362,7 +354,6 @@ namespace ImageMapEx
         }
 
 
-
         [System.Web.Services.WebMethod]
         public static string GetSecurity()
         {
@@ -378,20 +369,6 @@ namespace ImageMapEx
                 if (count == 1)
                 {
                     Headers = fields.Skip(2).ToArray();
-                    //Headers[0] = "Office";
-                    //Headers[1] = "RPF Post";
-                    //Headers[2] = "RPF Outpost";
-                    //Headers[3] = "Section";
-                    //Headers[4] = "Sanct RPF";
-                    //Headers[5] = "On Roll RPF";
-                    //Headers[6] = "Sanct Min. Staff";
-                    //Headers[7] = "On Roll Min. Staff";
-                    //Headers[8] = "Sanct Tech";
-                    //Headers[9] = "On Roll Tech";
-                    //Headers[10] = "Sanct Cook";
-                    //Headers[11] = "On Roll Cook";
-                    //Headers[12] = "Sanct L1";
-                    //Headers[13] = "On Roll L1";
                 }
                 else if (count > 1)
                 {
@@ -410,6 +387,99 @@ namespace ImageMapEx
 
             return BuildImageMap(new List<string>(securityDict.Keys)) + "~" + JsonConvert.SerializeObject(Headers)
                 + "~" + JsonConvert.SerializeObject(securityDict);
+        }
+
+        [System.Web.Services.WebMethod]
+        public static string GetRPFBarracks()
+        {
+            Dictionary<string, StationData> barracksDict = new Dictionary<string, StationData>();
+            List<string> records = ReadFile("RPFBarrackFileName");
+            string[] Headers = new string[14];
+            int count = 0;
+            foreach (string dataLine in records)
+            {
+                count++;
+                string[] fields = RegexSplit(dataLine);
+                if (count == 1)
+                {
+                    Headers = fields.Skip(1).ToArray();
+                }
+                else if (count > 1)
+                {
+                    string stationCode = fields[0];
+                    stationCode = stationCode.Split('/')[0].Trim();
+                    if (!barracksDict.ContainsKey(stationCode))
+                    {
+                        barracksDict[stationCode] = new StationData();
+                    }
+                    barracksDict[stationCode].Data.Add(fields.Skip(1).ToArray());
+                }
+            }
+
+            return BuildImageMap(new List<string>(barracksDict.Keys)) + "~" + JsonConvert.SerializeObject(Headers)
+                + "~" + JsonConvert.SerializeObject(barracksDict);
+        }
+
+        [System.Web.Services.WebMethod]
+        public static string GetOtherOffices()
+        {
+            Dictionary<string, StationData> otherOfficesDict = new Dictionary<string, StationData>();
+            List<string> records = ReadFile("OtherOfficeSpaceFileName");
+            string[] Headers = new string[14];
+            int count = 0;
+            foreach (string dataLine in records)
+            {
+                count++;
+                string[] fields = RegexSplit(dataLine);
+                if (count == 1)
+                {
+                    Headers = fields.Skip(1).ToArray();
+                }
+                else if (count > 1)
+                {
+                    string stationCode = fields[0];
+                    stationCode = stationCode.Split('/')[0].Trim();
+                    if (!otherOfficesDict.ContainsKey(stationCode))
+                    {
+                        otherOfficesDict[stationCode] = new StationData();
+                    }
+                    otherOfficesDict[stationCode].Data.Add(fields.Skip(1).ToArray());
+                }
+            }
+
+            return BuildImageMap(new List<string>(otherOfficesDict.Keys)) + "~" + JsonConvert.SerializeObject(Headers)
+                + "~" + JsonConvert.SerializeObject(otherOfficesDict);
+        }
+
+        [System.Web.Services.WebMethod]
+        public static string GetOfficesOutsideVSKP()
+        {
+            Dictionary<string, StationData> officesOutVSKPDict = new Dictionary<string, StationData>();
+            List<string> records = ReadFile("OfficesOutsideVSKPFileName");
+            string[] Headers = new string[14];
+            int count = 0;
+            foreach (string dataLine in records)
+            {
+                count++;
+                string[] fields = RegexSplit(dataLine);
+                if (count == 1)
+                {
+                    Headers = fields.Skip(1).ToArray();
+                }
+                else if (count > 1)
+                {
+                    string stationCode = fields[0];
+                    stationCode = stationCode.Split('/')[0].Trim();
+                    if (!officesOutVSKPDict.ContainsKey(stationCode))
+                    {
+                        officesOutVSKPDict[stationCode] = new StationData();
+                    }
+                    officesOutVSKPDict[stationCode].Data.Add(fields.Skip(1).ToArray());
+                }
+            }
+
+            return BuildImageMap(new List<string>(officesOutVSKPDict.Keys)) + "~" + JsonConvert.SerializeObject(Headers)
+                + "~" + JsonConvert.SerializeObject(officesOutVSKPDict);
         }
 
         [System.Web.Services.WebMethod]

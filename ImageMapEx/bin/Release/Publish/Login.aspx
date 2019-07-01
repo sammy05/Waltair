@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+<%--<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />--%>
 <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
-<script defer="defer" src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<%--<script defer="defer" src="https://code.getmdl.io/1.3.0/material.min.js"></script>--%>
 <!--#include file="HTML/include.html" -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -47,13 +47,17 @@
 </head>
 <%--<body style="background-image: url(/Image/TrainBlueLong.png); background-repeat:repeat; background-size:250px">--%>
 <body>
-    <div class="w3-row-padding w3-container w3-card-4" id="loginDiv">
+    <div class="w3-responsive w3-row-padding w3-container w3-card-4" id="loginDiv">
         <div class="w3-row w3-third" style="margin: 1em">
-            <img src="/Image/IndianRailLogo.png" id="logoImg" style="">
+            <div class="w3-col">
+                <img src="/Image/IndianRailLogoRed.png" id="logoImg" style="">
+                <h2 id="nameTag" class="w3-text-large" style="font:verdana; margin-left:7%"><b>South Coast Railway</b></h2>
+            </div>
         </div>
         <div class="w3-row w3-card-4 w3-rest" style="margin: 1em; height: 350px;">
             <div class="w3-container w3-green">
-                <h2>Waltair(SCoR) and Rayagada(ECoR) Divisons</h2>
+                <%--<h2>Waltair(SCoR) and Rayagada(ECoR) Divisions</h2>--%>
+                <h3>Waltair Division (SCoR and ECoR Jurisdictions)</h3>
             </div>
             <br />
             <form id="form" runat="server" class="w3-container">

@@ -13,8 +13,6 @@
     <script>
         var dataPresent = true;
         $(document).ready(function () {
-            //setInitialState(0.60);
-            //$(imageDiv).draggable();
             $('.dropdown-submenu button.test').on("click", function (e) {
                 $('.test').next('div').hide();
                 $(this).next('div').toggle();
@@ -63,36 +61,6 @@
             });
         }
 
-        function setImageFilteredMap(filter) {
-            $(':button').attr('disabled', true);
-            $.ajax({
-                type: "POST",
-                contentType: "application/json; charset=utf-8",
-                url: "Main.aspx/GetImageMap",
-                data: "{filter:'" + filter + "'}",
-                dataType: "json",
-                success: function (response) {
-                    $(':button').attr('disabled', false);
-                    $('#canvas').remove();
-                    $(".activeMap").remove();
-                    $("#imageDiv").append(response.d);
-                    setInitialState(0.56, false);
-                    $('.activeMap > area').click(function () {
-                        showModal(this.id);
-                    });
-                },
-                error: function (error) {
-                    console.log(error);
-                    $(':button').attr('disabled', false);
-                },
-                statusCode: {
-                    500: function () {
-                        $(':button').attr('disabled', false);
-                        console.log("Error code 500");
-                    }
-                }
-            });
-        }
         var data = {};
     </script>
 
@@ -114,11 +82,11 @@
         .w3-block {
             display: block;
             width: 100%;
-            text-align:left;
+            text-align: left;
         }
 
         .dropdown-menu {
-            min-width:100px;
+            min-width: 100px;
         }
     </style>
 </head>
@@ -133,10 +101,15 @@
             <button type="button" onclick="zoomout()" class="toggle"><i class="fa fa-search-minus"></i></button>
             <button type="button" onclick="document.location.reload(true)" class="toggle"><i class="fa fa-repeat"></i></button>
             <button id="controlBtn" type="button" onclick="hidebars()" class="toggle"><i class="fa fa-arrows-alt"></i></button>
+            <button id="conetxtBtn" type="button" class="toggle" hidden="hidden"></button>
         </div>
+
+<%--        <div class="w3-margin pull-right" id="contextDiv">
+        </div>--%>
         <div id="imageDiv" class="w3-container" style="margin-left: 15%; margin-top: 5%">
             <img id="mainImg" src="Image\WaltairMap - Copy.jpg" usemap="#image-map" alt="waltair rail map" />
         </div>
     </form>
 </body>
+
 </html>

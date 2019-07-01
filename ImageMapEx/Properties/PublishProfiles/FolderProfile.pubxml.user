@@ -43,10 +43,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/20/2019 22:35:20</publishTime>
     </File>
     <File Include="bin/ImageMapEx.dll">
-      <publishTime>06/21/2019 13:56:05</publishTime>
+      <publishTime>06/29/2019 22:57:25</publishTime>
     </File>
     <File Include="bin/ImageMapEx.pdb">
-      <publishTime>06/21/2019 13:56:05</publishTime>
+      <publishTime>06/29/2019 22:57:25</publishTime>
     </File>
     <File Include="bin/imagresize.aspx.cdcab7d2.compiled">
       <publishTime>06/20/2019 22:35:20</publishTime>
@@ -232,7 +232,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/19/2019 16:33:45</publishTime>
     </File>
     <File Include="HTML/navbar.html">
-      <publishTime>06/21/2019 13:55:00</publishTime>
+      <publishTime>06/29/2019 22:32:38</publishTime>
     </File>
     <File Include="Image/blue color.jpg">
       <publishTime>05/27/2019 23:04:37</publishTime>
@@ -257,6 +257,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Image/Green color_Cropped.jpg">
       <publishTime>05/28/2019 16:11:34</publishTime>
+    </File>
+    <File Include="Image/IndianRailLogo.ico">
+      <publishTime>06/21/2019 15:18:31</publishTime>
     </File>
     <File Include="Image/IndianRailLogo.png">
       <publishTime>06/14/2019 23:50:30</publishTime>
@@ -301,7 +304,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/08/2019 15:23:00</publishTime>
     </File>
     <File Include="JS/ImageZoom.js">
-      <publishTime>06/19/2019 16:36:15</publishTime>
+      <publishTime>06/25/2019 10:57:24</publishTime>
     </File>
     <File Include="JS/jquery-ui.min.js">
       <publishTime>05/29/2019 11:22:18</publishTime>
@@ -310,28 +313,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/29/2019 11:21:03</publishTime>
     </File>
     <File Include="JS/ModalPopup.js">
-      <publishTime>06/20/2019 22:03:23</publishTime>
+      <publishTime>06/25/2019 10:53:47</publishTime>
     </File>
     <File Include="JS/popper.min.js">
       <publishTime>05/10/2019 11:56:06</publishTime>
     </File>
     <File Include="JS/sidebar.js">
-      <publishTime>06/20/2019 15:05:06</publishTime>
+      <publishTime>06/29/2019 22:55:51</publishTime>
     </File>
     <File Include="Login.aspx">
-      <publishTime>06/20/2019 16:00:55</publishTime>
+      <publishTime>06/27/2019 22:28:13</publishTime>
     </File>
     <File Include="Logout.aspx">
       <publishTime>06/03/2019 11:45:17</publishTime>
     </File>
     <File Include="Main.aspx">
-      <publishTime>06/19/2019 21:45:20</publishTime>
+      <publishTime>06/26/2019 11:26:43</publishTime>
     </File>
     <File Include="PinkLine.aspx">
       <publishTime>06/05/2019 18:18:01</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>06/21/2019 13:56:06</publishTime>
+      <publishTime>06/29/2019 22:57:26</publishTime>
     </File>
     <File Include="RedLine.aspx">
       <publishTime>06/05/2019 21:41:45</publishTime>
@@ -340,22 +343,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/28/2019 21:26:15</publishTime>
     </File>
     <File Include="Style/basic.css">
-      <publishTime>06/20/2019 16:01:47</publishTime>
+      <publishTime>06/28/2019 19:42:55</publishTime>
     </File>
     <File Include="Style/bootstrap.min.css">
-      <publishTime>06/17/2019 13:02:38</publishTime>
+      <publishTime>06/25/2019 10:48:21</publishTime>
     </File>
     <File Include="Style/font-awesome.min.css">
       <publishTime>06/11/2019 12:57:34</publishTime>
     </File>
     <File Include="Style/w3.css">
-      <publishTime>06/14/2019 21:20:38</publishTime>
+      <publishTime>06/23/2019 21:55:00</publishTime>
     </File>
     <File Include="UserManagement.aspx">
       <publishTime>06/03/2019 17:24:21</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/20/2019 16:52:13</publishTime>
+      <publishTime>06/29/2019 22:57:25</publishTime>
     </File>
   </ItemGroup>
 </Project>

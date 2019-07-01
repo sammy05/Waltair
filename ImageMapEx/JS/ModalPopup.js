@@ -31,22 +31,12 @@ function showModal(areaId) {
     if (!dataPresent)
         return;
     var areaData = data[areaId];
-    //$('#modalLinkId').attr('href', areaData.Url);
     var name = $('#' + areaId).attr('title');
     $('#modalTitle').text(getStringInProperCase(name));
     $('#modalTitle').css('w3-large');
     $('#modalTable > thead').find('tr').remove();
     $('#modalTable tbody').find("tr").remove();
-    //for (var i = 0; i < areaData.Details.length; i++) {
-    //    var obj = areaData.Details[i];
-    //    if (obj.Freight == -1 || obj.Amount == -1)
-    //        continue;
-    //    var $row = $('<tr>' +
-    //        '<td>' + obj.Freight + '</td>' +
-    //        '<td>' + obj.Amount + '</td>' +
-    //        '</tr>');
-    //    $('#modalTable > tbody:last').append($row);
-    //}
+
     Object.keys(areaData).forEach(function (key) {
         console.table('Key : ' + key + ', Value : ' + areaData[key]);
         if (key === "Color") { }
@@ -71,7 +61,6 @@ function showModalWithHeader(areaId) {
     var temp = '<tr>';
     temp += ('<th>S No</th>');
     for (var i = 0; i < header.length; i++) {
-        //temp += ('<th style="text-align:left">' + header[i] + '</th>');
         temp += ('<th>' + header[i] + '</th>');
 
     }
@@ -86,7 +75,7 @@ function showModalWithHeader(areaId) {
         var temp = '<tr>';
         temp += ('<td>' + (i + 1) + '</td>');
         Object.keys(tempData).forEach(function (key) {
-            console.table('Key : ' + key + ', Value : ' + tempData[key]);
+            //console.table('Key : ' + key + ', Value : ' + tempData[key]);
             if (key === "Color") { }
             else {
                 if (!isNaN(Number(tempData[key]))) {
@@ -97,7 +86,6 @@ function showModalWithHeader(areaId) {
             } // style="text-align:left"
         })
         temp += '</tr>';
-        //var $row = $(temp);
         $('#modalTable > tbody:last').append($(temp));
     }
 

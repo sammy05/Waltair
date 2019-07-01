@@ -130,7 +130,6 @@ var buttons =
 function hidebars() {
     if (fullScreenToggle) {
         $('#navbarId').hide(400);
-        //$('#divSideBar').hide(400);
         $('#controlBtn > i').removeClass("fa-arrows-alt").addClass("fa-compress");
         document.getElementById("form1").style.marginLeft = "0%";
         document.getElementById("imageDiv").style.marginLeft = "0%";
@@ -139,9 +138,7 @@ function hidebars() {
         [...Array(3).keys()].forEach(function (i) {
             zoomin();
         });
-        //document.getElementById("imageDiv").style.marginLeft = "5%";
-        //document.getElementById("imageDiv").style.marginTop = "0%";
-        //document.getElementById("form1").style.marginTop = "0%";
+
     } else {
         $('#navbarId').show(600);
         //$('#divSideBar').show(400);
@@ -152,33 +149,13 @@ function hidebars() {
         [...Array(3).keys()].forEach(function (i) {
             zoomout();
         });
-        //document.getElementById("imageDiv").style.marginLeft = "0%";
     }
 
     fullScreenToggle = !fullScreenToggle;
 }
 
-//var filterButtons =
-//    //'<button type="button">&#9776;</button>' + 
-//    '<button type="button" class="filter">Corporate</button>'
-//    + '<button type="button" class="filter">Corporate1</button>'
-//    + '<button type="button" class="filter">Corporate2</button>'
-//    + '<button type="button" class="filter">Retail</button>';
-
-
-
 $(document).ready(function () {
-    //$('#buttonDiv').append(buttons);
-    //toggle();
-    //$('#filterDiv').append(filterButtons);
     $(':button').addClass("btn w3-hover-green btn-outline-primary");
-
-    //$('.filter').click(function () {
-    //    $('.filter').removeClass("w3-blue");
-    //    $('.filter').addClass("w3-hover-green");
-    //    $(this).removeClass("w3-hover-green");
-    //    $(this).addClass("w3-blue");
-    //});
 });
 
 var visible = true;
@@ -219,12 +196,4 @@ function setInitialState(shrinkFactor, pageLoad) {
     $('#canvas').remove();
     setColor(0);
 }
-
-//$(window).resize(function () {
-    //setInitialState(localShrinkFactor,true);
-//});
-
-
-
-
 
