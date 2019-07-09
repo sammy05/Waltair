@@ -1,7 +1,7 @@
 ﻿
 $(document).ready(
     function () {
-        $('#navbarId').append('<h2 class="w3-text-white w3-center" > Waltair(SCoR) and Rayagada(ECoR) Divisions</h2 >');
+        $('#navbarId').append('<h2 class="w3-text-white w3-center" > Loading Earnings & Assets of Waltair(SCoR) and Rayagada(ECoR) 2018-19</h2 >');
     });
 
 var header;
@@ -203,6 +203,11 @@ function GetMajorOffices(element) {
 function GetLHTrainForming(element) {
     SetContext(element);
     sendAjaxCall("Main.aspx/GetLHTrainForming", false);
+}
+
+function GetSupervisoryUnits(element) {
+    SetContext(element);
+    sendAjaxCall("Main.aspx/GetSupervisoryUnits", false);
 }
 
 

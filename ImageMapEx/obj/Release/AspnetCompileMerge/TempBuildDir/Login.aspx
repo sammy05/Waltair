@@ -51,7 +51,7 @@
         <div class="w3-row w3-third" style="margin: 1em">
             <div class="w3-col">
                 <img src="/Image/IndianRailLogoRed.png" id="logoImg" style="">
-                <h2 id="nameTag" class="w3-text-large" style="font:verdana; margin-left:7%"><b>South Coast Railway</b></h2>
+                <h2 id="nameTag" class="w3-text-large" style="font: verdana; margin-left: 7%"><b>South Coast Railway</b></h2>
             </div>
         </div>
         <div class="w3-row w3-card-4 w3-rest" style="margin: 1em; height: 350px;">

@@ -1,7 +1,7 @@
 ﻿
 $(document).ready(
     function () {
-        $('#navbarId').append('<h2 class="w3-text-white w3-center" > Waltair(SCoR) and Rayagada(ECoR) Divisions</h2 >');
+        $('#navbarId').append('<h2 class="w3-text-white w3-center" > Loading Earnings & Assets of Waltair(SCoR) and Rayagada(ECoR) 2018-19</h2 >');
     });
 
 var header;
@@ -23,145 +23,191 @@ function processData(responseData) {
     });
 }
 
-function GetConstructionOffices() {
+function GetConstructionOffices(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetConstructionOffices", false, true);
 }
 
-function GetRailCoefficient() {
+function GetRailCoefficient(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetRailCoefficient", false);
 }
 
-function GetFreightLoading() {
+function GetFreightLoading(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetFreightLoading", false);
 }
 
-function GetFreightTrainExamData() {
+function GetFreightTrainExamData(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetFreightTrainExamData", false);
 }
 
-function GetFreightTrainExamEarningData() {
+function GetFreightTrainExamEarningData(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetFreightTrainExamEarningData", false);
 }
 
-function GetPassengerTraffic() {
+function GetPassengerTraffic(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetPassengerTraffic", false);
 }
 
 
-function GetSignalDETU() {
+function GetSignalDETU(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetSignalDETU", false);
 }
 
-function GetSignalDESU() {
+function GetSignalDESU(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetSignalDESU", false);
 }
 
-function GetSecurity() {
+function GetSecurity(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetSecurity", false);
 }
 
-function GetRPFBarracks() {
+function GetRPFBarracks(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetRPFBarracks", false);
 }
 
-function GetOtherOffices() {
+function GetOtherOffices(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetOtherOffices", false);
 }
 
-function GetOfficesOutsideVSKP() {
+function GetOfficesOutsideVSKP(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetOfficesOutsideVSKP", false);
 }
 
-function GetRunningRooms() {
+function GetRunningRooms(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetRunningRooms", false);
 }
 
-function GetRestRooms() {
+function GetRestRooms(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetRestRooms", false);
 }
 
-function GetChangeStations() {
-    sendAjaxCall("Main.aspx/GetChangeStations",false);
+function GetChangeStations(element) {
+    SetContext(element);
+    sendAjaxCall("Main.aspx/GetChangeStations", false);
 }
 
-function GetQuarters() {
+function GetQuarters(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetQuarters", false);
 }
 
-function GetART() {
+function GetART(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetART", false);
 }
 
-function GetARME() {
+function GetARME(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetARME", false);
 }
 
-function GetBridges() {
+function GetBridges(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetBridges", false);
 }
 
-function GetCWFacilities() {
+function GetCWFacilities(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetCWFacilities", false);
 }
 
-function GetWeighBridges() {
+function GetWeighBridges(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetWeighBridges", false, true);
 }
 
-function GetCrewBookingPoints() {
+function GetCrewBookingPoints(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetCrewBookingPoints", false);
 }
 
-function GetLocoSheds() {
+function GetLocoSheds(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetLocoSheds", false);
 }
 
-function GetEmployeeDetails() {
+function GetEmployeeDetails(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetEmployeeDetails", false);
 }
 
-function GetCommunityHalls() {
+function GetCommunityHalls(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetCommunityHalls", false, true);
 }
 
-function GetOfficersClub() {
+function GetOfficersClub(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetOfficersClub", false, true);
 }
 
-function GetORH() {
+function GetORH(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetORH", false);
 }
 
-function GetSRH() {
+function GetSRH(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetSRH", false);
 }
 
-function GetRailwayInstitutes() {
+function GetRailwayInstitutes(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetRailwayInstitutes", false, true);
 }
 
-function GetSportsComplex() {
+function GetSportsComplex(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetSportsComplex", false);
 }
 
-function GetTrainingCenters() {
+function GetTrainingCenters(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetTrainingCenters", false);
 }
 
-function GetMedicalFacilities() {
+function GetMedicalFacilities(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetMedicalFacilities", false);
 }
 
-function GetPWayUnits() {
+function GetPWayUnits(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetPWayUnits", false);
 }
 
-function GetMajorOffices() {
+function SetContext(element) {
+    var text = $(element).parent().prev("button").text();
+    $('#conetxtBtn').text(text);
+    $('#conetxtBtn').show();
+}
+
+function GetMajorOffices(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetMajorOffices", false);
 }
 
-function GetLHTrainForming() {
+function GetLHTrainForming(element) {
+    SetContext(element);
     sendAjaxCall("Main.aspx/GetLHTrainForming", false);
+}
+
+function GetSupervisoryUnits(element) {
+    SetContext(element);
+    sendAjaxCall("Main.aspx/GetSupervisoryUnits", false);
 }
 
 

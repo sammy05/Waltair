@@ -75,7 +75,7 @@ function showModalWithHeader(areaId) {
         var temp = '<tr>';
         temp += ('<td>' + (i + 1) + '</td>');
         Object.keys(tempData).forEach(function (key) {
-            console.table('Key : ' + key + ', Value : ' + tempData[key]);
+            //console.table('Key : ' + key + ', Value : ' + tempData[key]);
             if (key === "Color") { }
             else {
                 if (!isNaN(Number(tempData[key]))) {

@@ -286,73 +286,95 @@ namespace ImageMapEx
         [System.Web.Services.WebMethod]
         public static string GetSignalDETU()
         {
-            Dictionary<string, StationData> signalDETUDict = new Dictionary<string, StationData>();
-            string dataPath = @"C:\Users\ssrivastava\Downloads\datasheets\Excel files\Excel files\Signal Telecom Assets\Station wise Telecom assets and DETU.csv";
-            StreamReader dataFile = new StreamReader(dataPath);
-            string dataLine;
+            Dictionary<string, StationData> DETUDict = new Dictionary<string, StationData>();
+            List<string> records = ReadFile("DETUFileName");
             string[] Headers = new string[50];
             int count = 0;
-            while ((dataLine = dataFile.ReadLine()) != null)
+            foreach (string dataLine in records)
             {
                 count++;
                 string[] fields = RegexSplit(dataLine);
                 if (count == 1)
                 {
-                    Headers = fields.Skip(2).ToArray();
+                    Headers = fields.Skip(1).ToArray();
                 }
                 else if (count > 1)
                 {
-                    string stationCode = fields[1];
+                    string stationCode = fields[0];
                     stationCode = stationCode.Split('/')[0].Trim();
-                    if (!signalDETUDict.ContainsKey(stationCode))
+                    if (!DETUDict.ContainsKey(stationCode))
                     {
-                        signalDETUDict[stationCode] = new StationData();
+                        DETUDict[stationCode] = new StationData();
                     }
-                    //signalDETUDict[stationCode].Data.Add(new SignalDETUData(fields[2], fields[3], fields[4],
-                    //    fields[5], fields[6], fields[7], fields[8], fields[9], "1"));
-                    signalDETUDict[stationCode].Data.Add(fields.Skip(2).ToArray());
+                    DETUDict[stationCode].Data.Add(fields.Skip(1).ToArray());
                 }
             }
 
-            return BuildImageMap(new List<string>(signalDETUDict.Keys)) + "~" + JsonConvert.SerializeObject(Headers)
-                + "~" + JsonConvert.SerializeObject(signalDETUDict);
+            return BuildImageMap(new List<string>(DETUDict.Keys)) + "~" + JsonConvert.SerializeObject(Headers)
+                + "~" + JsonConvert.SerializeObject(DETUDict);
         }
 
         [System.Web.Services.WebMethod]
         public static string GetSignalDESU()
         {
-            Dictionary<string, StationData> signalDESUDict = new Dictionary<string, StationData>();
-            string dataPath = @"C:\Users\ssrivastava\Downloads\datasheets\Excel files\Excel files\Signal Telecom Assets\Station wise signalling assets and DESU.csv";
-            StreamReader dataFile = new StreamReader(dataPath);
-            string dataLine;
+            Dictionary<string, StationData> DESUDict = new Dictionary<string, StationData>();
+            List<string> records = ReadFile("DESUFileName");
             string[] Headers = new string[50];
             int count = 0;
-            while ((dataLine = dataFile.ReadLine()) != null)
+            foreach (string dataLine in records)
             {
                 count++;
                 string[] fields = RegexSplit(dataLine);
                 if (count == 1)
                 {
-                    Headers = fields.Skip(2).ToArray();
+                    Headers = fields.Skip(1).ToArray();
                 }
                 else if (count > 1)
                 {
-                    string stationCode = fields[1];
+                    string stationCode = fields[0];
                     stationCode = stationCode.Split('/')[0].Trim();
-                    if (!signalDESUDict.ContainsKey(stationCode))
+                    if (!DESUDict.ContainsKey(stationCode))
                     {
-                        signalDESUDict[stationCode] = new StationData();
+                        DESUDict[stationCode] = new StationData();
                     }
-                    //signalDESUDict[stationCode].Data.Add(new SignalDESUData(fields[2], fields[3], fields[4],
-                    //    fields[5], fields[6], fields[7], fields[8], fields[9], fields[10], fields[11], fields[12], fields[13]));
-                    signalDESUDict[stationCode].Data.Add(fields.Skip(2).ToArray());
+                    DESUDict[stationCode].Data.Add(fields.Skip(1).ToArray());
                 }
             }
 
-            return BuildImageMap(new List<string>(signalDESUDict.Keys)) + "~" + JsonConvert.SerializeObject(Headers)
-                + "~" + JsonConvert.SerializeObject(signalDESUDict);
+            return BuildImageMap(new List<string>(DESUDict.Keys)) + "~" + JsonConvert.SerializeObject(Headers)
+                + "~" + JsonConvert.SerializeObject(DESUDict);
         }
 
+        [System.Web.Services.WebMethod]
+        public static string GetSupervisoryUnits()
+        {
+            Dictionary<string, StationData> supervisoryUnitsDict = new Dictionary<string, StationData>();
+            List<string> records = ReadFile("SupervisoryUnitsFileName");
+            string[] Headers = new string[50];
+            int count = 0;
+            foreach (string dataLine in records)
+            {
+                count++;
+                string[] fields = RegexSplit(dataLine);
+                if (count == 1)
+                {
+                    Headers = fields.Skip(1).ToArray();
+                }
+                else if (count > 1)
+                {
+                    string stationCode = fields[0];
+                    stationCode = stationCode.Split('/')[0].Trim();
+                    if (!supervisoryUnitsDict.ContainsKey(stationCode))
+                    {
+                        supervisoryUnitsDict[stationCode] = new StationData();
+                    }
+                    supervisoryUnitsDict[stationCode].Data.Add(fields.Skip(1).ToArray());
+                }
+            }
+
+            return BuildImageMap(new List<string>(supervisoryUnitsDict.Keys)) + "~" + JsonConvert.SerializeObject(Headers)
+                + "~" + JsonConvert.SerializeObject(supervisoryUnitsDict);
+        }
 
         [System.Web.Services.WebMethod]
         public static string GetSecurity()

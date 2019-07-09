@@ -86,10 +86,7 @@
   <ItemGroup>
     <Content Include="App_Data\credentials.txt" />
     <Content Include="App_Data\MapCoordinates.txt" />
-    <Content Include="BlueLine.aspx" />
-    <Content Include="CyanLine.aspx" />
     <Content Include="GetImageCoords.aspx" />
-    <Content Include="GreenLine.aspx" />
     <Content Include="HTML\navbar.html" />
     <Content Include="Image\IndianRailLogo.ico" />
     <Content Include="Image\IndianRailLogoRed.png" />
@@ -111,8 +108,6 @@
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="Main.aspx" />
-    <Content Include="PinkLine.aspx" />
-    <Content Include="RedLine.aspx" />
     <Content Include="Style\animate.css" />
     <Content Include="Style\basic.css" />
     <Content Include="Style\bootstrap.min.css" />
@@ -144,13 +139,6 @@
     <Compile Include="Common\PageLoad.cs" />
     <Compile Include="Common\Data.cs" />
     <Compile Include="Common\FreightData.cs" />
-    <Compile Include="BlueLine.aspx.cs">
-      <DependentUpon>BlueLine.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="BlueLine.aspx.designer.cs">
-      <DependentUpon>BlueLine.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Common\PassengerTraffic.cs" />
     <Compile Include="Common\PWayUnits.cs" />
     <Compile Include="Common\Quarters.cs" />
@@ -164,26 +152,12 @@
     <Compile Include="Common\TrainingCenter.cs" />
     <Compile Include="Common\UserDetails.cs" />
     <Compile Include="Common\WeighBridges.cs" />
-    <Compile Include="CyanLine.aspx.cs">
-      <DependentUpon>CyanLine.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CyanLine.aspx.designer.cs">
-      <DependentUpon>CyanLine.aspx</DependentUpon>
-    </Compile>
     <Compile Include="GetImageCoords.aspx.cs">
       <DependentUpon>GetImageCoords.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="GetImageCoords.aspx.designer.cs">
       <DependentUpon>GetImageCoords.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="GreenLine.aspx.cs">
-      <DependentUpon>GreenLine.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GreenLine.aspx.designer.cs">
-      <DependentUpon>GreenLine.aspx</DependentUpon>
     </Compile>
     <Compile Include="ImagResize.aspx.cs">
       <DependentUpon>ImagResize.aspx</DependentUpon>
@@ -213,21 +187,7 @@
     <Compile Include="Main.aspx.designer.cs">
       <DependentUpon>Main.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PinkLine.aspx.cs">
-      <DependentUpon>PinkLine.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PinkLine.aspx.designer.cs">
-      <DependentUpon>PinkLine.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RedLine.aspx.cs">
-      <DependentUpon>RedLine.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RedLine.aspx.designer.cs">
-      <DependentUpon>RedLine.aspx</DependentUpon>
-    </Compile>
     <Compile Include="UserManagement.aspx.cs">
       <DependentUpon>UserManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

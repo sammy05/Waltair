@@ -20,7 +20,7 @@ html, body {
 }*/
 
 #canvas {
-    /* make the canvas transparent to the mouse - needed since canvas is position infront of image */
+    /* make the canvas transparent to the mouse - needed since canvas is positioned infront of image */
     pointer-events: none;
 }
 
